@@ -20,7 +20,7 @@ class GroupsFactory extends Factory
             'description' => $this->faker->sentence(),
             'order' => $this->faker->numberBetween(1, 100),
             'user_id' => $this->faker->numberBetween(1, 10),
-            'created_at' => $this->faker->dateTimeThisDecade(),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
         ];
     }
 }
