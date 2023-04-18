@@ -16,4 +16,16 @@ class GroupsController extends Controller
     {
         return GroupsResource::collection(auth()->user()->groups);
     }
+
+    public function store(){
+
+    }
+
+    public function update(){
+        
+    }
+
+    public function destroy(){
+        
+    }
 }

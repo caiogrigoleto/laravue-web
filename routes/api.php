@@ -12,26 +12,26 @@ Route::prefix('v1')->group(function(){
 
     Route::prefix('products')->group(function(){
         Route::get('', [ProductController::class, 'index']);
-        Route::get('/{id}', [ProductController::class, 'show']);
+        Route::get('/{product}', [ProductController::class, 'show']);
         Route::post('', [ProductController::class, 'store']);
-        Route::put('/{id}', [ProductController::class, 'update']);
-        Route::delete('/{id}', [ProductController::class, 'destroy']);
+        Route::put('/{product}', [ProductController::class, 'update']);
+        Route::delete('/{product}', [ProductController::class, 'destroy']);
     });
 
     Route::prefix('groups')->group(function(){
         Route::get('', [GroupsController::class, 'index']);
-        Route::get('/{id}', [GroupsController::class, 'show']);
+        Route::get('/{groups}', [GroupsController::class, 'show']);
         Route::post('', [GroupsController::class, 'store']);
-        Route::put('/{id}', [GroupsController::class, 'update']);
-        Route::delete('/{id}', [GroupsController::class, 'destroy']);
+        Route::put('/{groups}', [GroupsController::class, 'update']);
+        Route::delete('/{groups}', [GroupsController::class, 'destroy']);
     });
 
     Route::prefix('customers')->group(function(){
         Route::get('', [CustomerController::class, 'index']);
-        Route::get('/{id}', [CustomerController::class, 'show']);
+        Route::get('/{customer}', [CustomerController::class, 'show']);
         Route::post('', [CustomerController::class, 'store']);
-        Route::put('/{id}', [CustomerController::class, 'update']);
-        Route::delete('/{id}', [CustomerController::class, 'destroy']);
+        Route::put('/{customer}', [CustomerController::class, 'update']);
+        Route::delete('/{customer}', [CustomerController::class, 'destroy']);
     });
 });
 
