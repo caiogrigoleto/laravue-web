@@ -40,6 +40,7 @@ Route::prefix('v1')->group(function(){
         Route::get('/vendasMes', [VendasController::class, 'vendasMes']);
         Route::get('/{id}', [VendasController::class, 'show']);
         Route::post('', [VendasController::class, 'store']);
+        Route::delete('/{id}', [VendasController::class, 'destroy']);
     });
 });
 

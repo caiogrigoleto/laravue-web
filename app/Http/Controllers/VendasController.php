@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\VendasResource;
 use App\Http\Requests\VendasStoreRequest;
+use App\Models\Vendas;
 
 class VendasController extends Controller
 {
@@ -20,7 +21,7 @@ class VendasController extends Controller
     public function vendasMes(){
         return [
             "status" => true,
-            "vendas" =>auth()->user()->vendas()->whereMonth('created_at', date('m'))->get()
+            "vendas" =>auth()->user()->vendas()->whereMonth('created_at', date('m'))->get(),
         ];
     }
 
@@ -41,5 +42,14 @@ class VendasController extends Controller
 
         return new VendasResource($venda);
 
+    }
+
+    public function destroy(Vendas $venda){
+        $venda->delete();
+
+        return [
+            'status' => true,
+            'message' => 'Venda deletada com sucesso'
+        ];
     }
 }
