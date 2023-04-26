@@ -13,6 +13,7 @@ class Vendas extends Model
         'customer_id',
         'vr_total',
         'user_id',
-        'created_at'
+        'created_at',
+        'updated_at'
     ];
 }

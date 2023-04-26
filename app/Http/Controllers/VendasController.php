@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\VendasResource;
-use App\Models\Vendas;
+use App\Http\Requests\VendasStoreRequest;
 
 class VendasController extends Controller
 {
@@ -17,10 +17,29 @@ class VendasController extends Controller
         return VendasResource::collection(auth()->user()->vendas);
     }
 
-    public function vendasMes(Vendas $venda){
+    public function vendasMes(){
         return [
             "status" => true,
-            "data" =>$venda
+            "vendas" =>auth()->user()->vendas()->whereMonth('created_at', date('m'))->get()
         ];
+    }
+
+    public function show($id)
+    {
+        $venda = auth()->user()->vendas()->find($id);
+        return [
+            "status" => true,
+            "venda" => $venda
+        ];
+    }
+
+    public function store(VendasStoreRequest $request)
+    {
+        $input = $request->validated();
+
+        $venda = auth()->user()->vendas()->create($input);
+
+        return new VendasResource($venda);
+
     }
 }

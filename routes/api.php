@@ -38,6 +38,8 @@ Route::prefix('v1')->group(function(){
     Route::prefix('vendas')->group(function(){
         Route::get('', [VendasController::class, 'index']);
         Route::get('/vendasMes', [VendasController::class, 'vendasMes']);
+        Route::get('/{id}', [VendasController::class, 'show']);
+        Route::post('', [VendasController::class, 'store']);
     });
 });
 

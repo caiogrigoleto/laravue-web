@@ -19,7 +19,8 @@ class VendasResource extends JsonResource
             'customer_id' => $this->customer_id,
             'vr_total' => $this->vr_total,
             'user_id' => $this->user_id,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

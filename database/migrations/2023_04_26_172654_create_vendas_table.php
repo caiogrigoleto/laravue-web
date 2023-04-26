@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('vr_total');
             $table->integer('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->date('created_at')->nullable();
+            $table->date('updated_at')->nullable();
         });
     }
 
