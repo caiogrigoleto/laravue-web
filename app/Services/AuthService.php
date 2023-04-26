@@ -17,7 +17,7 @@ class AuthService
       throw new LoginInvalidExcept('Erro ao autenticar na API!');
     }
     return [
-      'acces_token' => $token,
+      'access_token' => $token,
       'token_type' => 'Bearer',
     ];
   }

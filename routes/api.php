@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\VendasController;
 
 Route::prefix('v1')->group(function(){
     Route::post('login', [AuthController::class, 'login']);
@@ -32,6 +33,11 @@ Route::prefix('v1')->group(function(){
         Route::post('', [CustomerController::class, 'store']);
         Route::put('/{customer}', [CustomerController::class, 'update']);
         Route::delete('/{customer}', [CustomerController::class, 'destroy']);
+    });
+
+    Route::prefix('vendas')->group(function(){
+        Route::get('', [VendasController::class, 'index']);
+        Route::get('/vendasMes', [VendasController::class, 'vendasMes']);
     });
 });
 

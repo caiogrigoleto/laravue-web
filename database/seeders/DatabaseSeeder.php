@@ -26,39 +26,47 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('admin'),
             ]
         );
+
+        User::factory()->create(
+            [
+                'first_name' => 'User',
+                'email' => 'user@user.com',
+                'password' => bcrypt('user'),
+            ]
+            );
         
-        Product::factory()->count(5)->create(
-            [
-                'description' => 'Produto Teste',
-                'quantity' => 10,
-                'price' => 10,
-                'category_id' => 1,
-                'user_id' => 1,
-                'created_at' => now(),
-            ]
-        );
+        // Product::factory()->count(5)->create(
+        //     [
+        //         'description' => 'Produto Teste',
+        //         'quantity' => 10,
+        //         'price' => 10,
+        //         'category_id' => 1,
+        //         'user_id' => 1,
+        //         'created_at' => now(),
+        //     ]
+        // );
 
-        Groups::factory()->count(5)->create([
-            'description' => 'Grupo Teste',
-            'order' => 1,
-            'user_id' => 1,
-            'created_at' => now(),
-        ]);
+        // Groups::factory()->count(5)->create([
+        //     'description' => 'Grupo Teste',
+        //     'order' => 1,
+        //     'user_id' => 1,
+        //     'created_at' => now(),
+        // ]);
 
 
-        Customer::factory()->count(10)->create(
-            [
-                'name' => 'Cliente Teste',
-                'address' => 'Endereço Teste',
-                'state' => 'Estado Teste',
-                'city' => 'Cidade Teste',
-                'phone' => '999999999',
-                'email' => 'test@test.com',
-                'active' => true,
-                'user_id' => 1,
-                'created_at' => now(),
-            ]
-        );
+        // Customer::factory()->count(10)->create(
+        //     [
+        //         'name' => 'Cliente Teste',
+        //         'address' => 'Endereço Teste',
+        //         'state' => 'Estado Teste',
+        //         'city' => 'Cidade Teste',
+        //         'phone' => '999999999',
+        //         'email' => 'test@test.com',
+        //         'active' => true,
+        //         'user_id' => 1,
+        //         'created_at' => now(),
+        //     ]
+        // );
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
