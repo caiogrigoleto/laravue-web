@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerStoreRequest;
-use Illuminate\Http\Request;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use App\Http\Requests\CustomerUpdateRequest;
@@ -39,5 +38,9 @@ class CustomerController extends Controller
 
     public function destroy(Customer $customer){
         $customer->delete();
+
+        return [
+            'message' => 'Customer deleted successfully',
+        ];
     }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GroupsStoreRequest;
 use App\Http\Resources\GroupsResource;
-use Illuminate\Http\Request;
+use App\Models\Groups;
 
 class GroupsController extends Controller
 {
@@ -17,15 +18,31 @@ class GroupsController extends Controller
         return GroupsResource::collection(auth()->user()->groups);
     }
 
-    public function store(){
+    public function store(GroupsStoreRequest $request){
+        $input = $request->validated();
+
+        $group = auth()->user()->groups()->create($input);
+
+        return new GroupsResource($group);
 
     }
 
-    public function update(){
+    public function update(Groups $groups , GroupsStoreRequest $request){
+        $input = $request->validated();
+
+        $groups->fill($input);
+        $groups->save();
+
+        return new GroupsResource($groups->fresh());
         
     }
 
-    public function destroy(){
+    public function destroy(Groups $groups){
+        $groups->delete();
+
+        return [
+            'message' => 'Group deleted successfully',
+        ];
         
     }
 }
