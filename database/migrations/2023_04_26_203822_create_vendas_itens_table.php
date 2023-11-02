@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('venda_id')->references('id')->on('vendas')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('produto_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('customer_id')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('quantidade');
             $table->float('vr_unitario');
             $table->float('vr_total');

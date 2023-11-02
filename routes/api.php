@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\VendasController;
 
 Route::prefix('v1')->group(function(){
@@ -41,6 +42,15 @@ Route::prefix('v1')->group(function(){
         Route::get('/{id}', [VendasController::class, 'show']);
         Route::post('', [VendasController::class, 'store']);
         Route::delete('/{id}', [VendasController::class, 'destroy']);
+        Route::get('/{id}/itens', [VendasItensController::class, 'itens']);
+    });
+
+    Route::prefix('empresas')->group(function(){
+        Route::get('', [EmpresasController::class, 'index']);
+        Route::get('/{id}', [EmpresasController::class, 'show']);
+        Route::post('', [EmpresasController::class, 'store']);
+        Route::put('/{id}', [EmpresasController::class, 'update']);
+        Route::delete('/{id}', [EmpresasController::class, 'destroy']);
     });
 });
 

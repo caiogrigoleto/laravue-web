@@ -14,6 +14,17 @@ class VendasItensResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+        'id' => $this->id,
+        'customer_id' => $this->customer_id,
+        'venda_id' => $this->venda_id,
+        'product_id' => $this->product_id,
+        'quantidade' => $this->quantidade,
+        'vr_unitario' => $this->vr_unitario,
+        'vr_total' => $this->vr_total,
+        'user_id' => $this->user_id,
+        'created_at' => $this->created_at,
+        'updated_at' => $this->updated_at
+        ];
     }
 }
